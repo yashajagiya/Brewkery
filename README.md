@@ -80,13 +80,16 @@
 
 The application development was driven and refined through iterative prompting with **Gemini 3.6 Flash**:
 
-```markdown
-### Prompt 1: Initial Architecture & Implementation Plan
-"create implement plan for the "Brewkery" where this app is Coffee app (just like the Starbucks where user can order the coffee online using the app )first understand the all the requirement and need of this app then make implement plan.
+#### **Prompt 1**
+```
+create implement plan for the "Brewkery" where this app is Coffee app (just like the Starbucks where user can order the coffee online using the app )first understand the all the requirement and need of this app then make implement plan.
 
-theme/ui - give suggestion of the relevant theme (Deep Mocha & Caramel Primary: #362419 (Velvety Dark Chocolate Mocha) Secondary: #E0A96D (Golden Warm Caramel) Background: #F4EAE1 (Warm Oat Milk Neutral))where match the coffee and cosy and relax vibe , minimalist ui (give deferent option of the color theme and ui to chose between from the implement plan), use the appropriate font accoding tot the app , strictly use of the material 3 component of compose ,animation for every button and card for clicked and hover, all icons from the compose icon library (no use of the emoji(only use the emoji when it come form the api data) only use the icon ) , use Material 3 Compose Loading Indicator for the every page to load for .5 sec for every screen , no need of the navigation bar in bottom
+theme/ui - give suggestion of the relevant theme (Deep Mocha & Caramel
+Primary: #362419 (Velvety Dark Chocolate Mocha)
+Secondary: #E0A96D (Golden Warm Caramel)
+Background: #F4EAE1 (Warm Oat Milk Neutral))where match the coffee and cosy and relax vibe , minimalist ui (give deferent option of the color theme and ui  to chose between from the implement plan), use the appropriate font accoding tot the app , strictly use of the material 3 component of compose ,animation for every button and card for clicked and hover, all icons from the compose icon library (no use of the emoji(only use the emoji when it come form the api data) only use the icon ) , use Material 3 Compose Loading Indicator for the every page to load for .5 sec for every screen , no need of the navigation bar in bottom
 
-tech stake - "navigation 3 , material 3 ,retrofit , gson , room for the save histoy of the order and cart item that in the avible before the app close ,coroutine api data from the {https://raw.githubusercontent.com/VivekShah138/Brewkery/main/data.json details of the coffee and other} ,{https://raw.githubusercontent.com/VivekShah138/Brewkery/main/api/items/{1,2,3,4,5,6}.json specific data of the that item} "
+tech stake - "navigation 3 , material 3 ,retrofit , gson , room for the save histoy of the order and cart item that in the avible before the app close ,coroutine  api data from the {https://raw.githubusercontent.com/VivekShah138/Brewkery/main/data.json  details of the coffee and other} ,{https://raw.githubusercontent.com/VivekShah138/Brewkery/main/api/items/{1,2,3,4,5,6}.json specific data of the that item} "
 
 architecture - MVVM , clean architecture , use the Enum state for (success ,fail ,loading for every state and show the appropriate ui according to it ),loosely cupel (so it can one thing fail/remove or new thing add don't crash whole app), code maintainable , scalable , and readable to developer so it can maintain and can understand , every thing cover in to try catechin all the error and all the activity all show in the logs , if user has no internet then the show the no internet , and when api call fail for fetch data show the "something went wrong" screen and user cant order or cant do any thing
 
@@ -96,18 +99,25 @@ Screen 2 — Item Detail: tap an item → hero image, info, ingredients, and dyn
 
 Screen 3 — Cart: tap cart → items list with quantities, subtotal + $2.50 delivery + 8% tax calculation. (show the all the items in the cart and show the all the tax + customization addons + delivery in appropriate order) ( main button where user can place the order and it redirect to the Order Status page ) , with slide can user can remove that item form the cart and give clear every thing item for the cart.
 
-Screen 4 — Order Status: place order → clear cart, generate ticket ID (BK-{item number}{4 digit number start from the 1001}), and show PREPARING status (after that time of preparing show the out for delivery and show random delivery time range form 5 min to 15 min ,show both countdown of the remaining time) show the animation of the successfully order in only the order status when it success it only one time, button for the go back to main menu.
+Screen 4 — Order Status: place order → clear cart, generate ticket ID (BK-{item number}{4 digit number start from the 1001}), and show PREPARING status (after that time of preparing show the out for delivery and show random delivery time range form 5  min to 15 min ,show both countdown of the remaining time) show the animation of the successfully order in only the order status when it success it only one time, button for the go back to main menu.
 
-understand the requirement see and what can be improve and what can be done extra and make app more user friendly and more easy to use"
 
-### Prompt 2: Main Menu Layout & Item Detail API Refinement
-"https://raw.githubusercontent.com/VivekShah138/Brewkery/main/api/items/{id}.json id is from 1 2 3 4 5 6 that ide is alred avible in the https://raw.githubusercontent.com/VivekShah138/Brewkery/main/data.json that id is details aboud the that item like id: 1 or something , and remove the discerption of the item in the main screen only title of the item and it shoud be show full use second line if need"
+understand the requirement see and what can be improve and what can be done extra and make app more user friendly and more easy to use
+```
 
-### Prompt 3: Touch Event Interception Bugfix
-"something is off in the menu card it not working as indented , user clicked on the card of the item but it not opening any thing see what's is issue why it not working https://raw.githubusercontent.com/VivekShah138/Brewkery/main/api/items/{id}.json see what is issue and fix it according to the implemt plan"
+#### **Prompt 2**
+```
+https://raw.githubusercontent.com/VivekShah138/Brewkery/main/api/items/{id}.json id is from 1 2 3 4 5 6 that ide is alred avible in the https://raw.githubusercontent.com/VivekShah138/Brewkery/main/data.json that id is details aboud the that item like id: 1 or something , and remove the discerption of the item in the main screen only title of the item and it shoud be show full use second line if need
+```
 
-### Prompt 4: Active Order Pager Dots, Instant API Loading, Profile Order History & UI Enhancements
-"1).in the slide for the mutliple order process show the thire other order details ccar by dot slider so user know thire is other order details , 2). why it api call take time see why it taking time and loading time is too much if loading time dont need like if the api data come fast then the do not use the lading screen , 3). save the order histy and show in the profile (if usr cclike on to the profile then it opern the right side slider and thire section for the histy of the order show the card of the order (otder id , orderx amount , order title , order time , and if clcike on the card expend then show the billing ammount ))4)impove other factore like titile and ui make it more asthetic ana cleae an d add more intractiev aniamtiona and other animation forr the order complet and other fthing"
+#### **Prompt 3**
+```
+something is off in the menu card it not working as indented , user clicked on the card of the item but it not opening any thing see what's is issue why it not working https://raw.githubusercontent.com/VivekShah138/Brewkery/main/api/items/{id}.json see what is issue and fix it according to the implemt plan
+```
+
+#### **Prompt 4**
+```
+1).in the slide for the mutliple order  process show the thire other  order details ccar by dot slider so user know thire is other order details  , 2). why it api call take time see why it taking time and loading time is too much if loading time dont need like if the api data come fast then the do not use the lading screen , 3). save the order histy and show in the profile (if usr cclike on to the profile then it opern the right side slider and thire section for the histy of the order show the card of the order (otder id , orderx amount , order title , order time , and if clcike on the card expend  then show the billing ammount ))4)impove other factore like titile and ui make it more asthetic ana cleae an d add more intractiev aniamtiona and other animation forr the order complet and other fthing ,
 ```
 
 ---
