@@ -137,4 +137,4 @@ Run unit tests via Gradle:
 ---
 
 ## 📄 License
-Designed & Developed for **Brewkery** Coffee App.
+Designed & Developed by yash ajagiya.
